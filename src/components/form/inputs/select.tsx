@@ -1,8 +1,8 @@
 import { UseFormRegister } from 'react-hook-form';
-import { SelectInputProps } from '../../types';
+import { SelectInputProps } from '../../../types';
 import { forwardRef } from 'react';
-import { FormError, FormFieldWrapper, FormLabel, FormSelectInput, FormSelectOption } from '../styled';
-import { FormFieldsProps } from '../../App';
+import { FormError, FormFieldWrapper, FormLabel, FormSelectInput, FormSelectOption } from '../../styled';
+import { FormFieldsProps } from '../index';
 
 const SelectInput = forwardRef<HTMLSelectElement, SelectInputProps & ReturnType<UseFormRegister<FormFieldsProps>>>(
   ({ onChange, onBlur, name, label, error, options }, ref) => {

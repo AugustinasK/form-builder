@@ -2,9 +2,9 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { useState } from 'react';
 import { SelectInput } from '../inputs/select';
 import { TextInput } from '../inputs/text';
-import { FormWrapper, SubmitButton } from '../styled';
-import { InputProps, InputTypes } from '../../types';
-import { stringToCharArray } from '../../utils';
+import { FormWrapper, SubmitButton } from '../../styled';
+import { InputProps, InputTypes } from '../../../types';
+import { stringToCharArray } from '../../../utils';
 import { SelectOptions } from './select-options';
 import { NumberOptions } from './number-options';
 import styled from 'styled-components';
@@ -51,8 +51,7 @@ export const AddField = ({ onAdd, fieldNames }: AddFieldProps) => {
         name: inputName,
         label: name,
       });
-    }
-    if (type === InputTypes.NUMBER) {
+    } else if (type === InputTypes.NUMBER) {
       onAdd({
         type: type,
         name: inputName,
@@ -60,8 +59,7 @@ export const AddField = ({ onAdd, fieldNames }: AddFieldProps) => {
         min: min,
         max: max,
       });
-    }
-    if (type === InputTypes.SELECT && options) {
+    } else if (type === InputTypes.SELECT && options) {
       onAdd({
         type: type,
         name: inputName,
@@ -78,7 +76,8 @@ export const AddField = ({ onAdd, fieldNames }: AddFieldProps) => {
   };
 
   // check if this input name is already used
-  const validateInputName = (value: string) => (fieldNames.includes(value) ? 'Input name already exists' : true);
+  const validateInputName = (value: string) =>
+    fieldNames.includes(stringToCharArray(value)) ? 'Input name already exists' : true;
 
   const handleInputTypeChange = () => {
     setInputType(getValues('type'));

@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { TextInput } from '../inputs/text';
-import { InputTypes } from '../../types';
+import { InputTypes } from '../../../types';
 import { FieldErrors, UseFormRegister } from 'react-hook-form';
 import { AddFieldFormProps } from './add-field';
-import { stringToCharArray } from '../../utils';
-import { SecondaryButton } from '../styled';
+import { stringToCharArray } from '../../../utils';
+import { SecondaryButton } from '../../styled';
 
 interface SelectOptionsProps {
   register: UseFormRegister<AddFieldFormProps>;

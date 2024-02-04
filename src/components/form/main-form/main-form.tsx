@@ -1,17 +1,12 @@
 import { FieldErrors, UseFormRegister } from 'react-hook-form';
-import { CheckboxInputProps, InputProps, NumberInputProps, SelectInputProps, TextInputProps } from '../../types';
-import { FormWrapper, RemoveFieldButton, RowWrapper, SubmitButton } from '../styled';
-import { FormFieldsProps } from '../../App';
+import { CheckboxInputProps, InputProps, NumberInputProps, SelectInputProps, TextInputProps } from '../../../types';
+import { FormWrapper, RemoveFieldButton, RowWrapper, SubmitButton } from '../../styled';
+import { FormFieldsProps } from '../index';
 import { TextInput } from '../inputs/text';
 import { NumberInput } from '../inputs/number';
 import { CheckboxInput } from '../inputs/checkbox';
 import { SelectInput } from '../inputs/select';
-import styled from 'styled-components';
-
-const MainFormWrapper = styled.section`
-  padding: 20px;
-  flex-grow: 1;
-`;
+import { MainFormWrapper } from './styled';
 
 interface MainFormProps {
   fields: InputProps[];

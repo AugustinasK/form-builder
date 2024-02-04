@@ -1,8 +1,8 @@
 import { forwardRef } from 'react';
 import { UseFormRegister } from 'react-hook-form';
-import { NumberInputProps } from '../../types';
-import { FormFieldWrapper, FormInput, FormError, FormLabel } from '../styled';
-import { FormFieldsProps } from '../../App';
+import { NumberInputProps } from '../../../types';
+import { FormFieldWrapper, FormInput, FormError, FormLabel } from '../../styled';
+import { FormFieldsProps } from '../index';
 
 const NumberInput = forwardRef<HTMLInputElement, NumberInputProps & ReturnType<UseFormRegister<FormFieldsProps>>>(
   ({ onChange, onBlur, name, label, min, max, error }, ref) => {
