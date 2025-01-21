@@ -51,10 +51,12 @@ export const Form = () => {
   });
 
   const [formFields, setFormFields] = useState<InputProps[]>(initialFormFields);
+  const [formResults, setFormResults] = useState<FormFieldsProps>();
 
   const onSubmit: SubmitHandler<FormFieldsProps> = (data) => {
     // eslint-disable-next-line no-console
-    console.log('submitted form: ', data);
+    // console.log('submitted form: ', data);
+    setFormResults(data);
   };
 
   const handleAddField = (field: InputProps) => {
@@ -76,6 +78,24 @@ export const Form = () => {
         onRemove={handleRemoveField}
       />
       <AddField onAdd={handleAddField} fieldNames={formFields.map((field) => field.name)} />
+
+      <h4>Form results</h4>
+      {formResults && (
+        <table>
+          <thead>
+            <th align="left">Field</th>
+            <th align="left">Value</th>
+          </thead>
+          {Object.entries(formResults).map(([name, value], index) => {
+            return (
+              <tr key={index}>
+                <td>{name}</td>
+                <td>{value.toString()}</td>
+              </tr>
+            );
+          })}
+        </table>
+      )}
     </>
   );
 };

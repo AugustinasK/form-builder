@@ -77,6 +77,9 @@ export const SubmitButton = styled.input`
   border-radius: 10px;
   cursor: pointer;
   font-size: 18px;
+  :disabled {
+    opacity: 0.5;
+  }
 `;
 
 export const SecondaryButton = styled.button`
@@ -87,6 +90,9 @@ export const SecondaryButton = styled.button`
   color: ${(props) => props.theme.colors.button.primary};
   border-radius: 10px;
   cursor: pointer;
+  :disabled {
+    opacity: 0.5;
+  }
 `;
 
 export const RemoveFieldButton = styled.button`

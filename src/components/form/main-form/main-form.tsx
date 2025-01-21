@@ -21,15 +21,14 @@ type RegisteredInput = ReturnType<UseFormRegister<FormFieldsProps>>;
 export const MainForm = ({ fields, register, errors, onSubmit, onRemove }: MainFormProps) => {
   const InputComponentMap = (props: InputProps) => {
     const { type, name, label } = props;
-    const requiredMessage = { required: `${label} field can't be empty` };
     const commonProps = { ...props, error: errors[name]?.message };
     const fieldProps = { ...commonProps, ...register(name, { required: false }) };
-    const requiredFieldProps = { ...commonProps, ...register(name, requiredMessage) };
+    const requiredFieldProps = { ...commonProps, ...register(name, { required: `${label} field can't be empty` }) };
     const inputComponent = {
       text: <TextInput {...(requiredFieldProps as TextInputProps & RegisteredInput)} />,
       number: <NumberInput {...(requiredFieldProps as NumberInputProps & RegisteredInput)} />,
       checkbox: <CheckboxInput {...(fieldProps as CheckboxInputProps & RegisteredInput)} />,
-      select: <SelectInput {...(fieldProps as SelectInputProps & RegisteredInput)} />,
+      select: <SelectInput {...(requiredFieldProps as SelectInputProps & RegisteredInput)} />,
     };
 
     return inputComponent[type] || <>No component found for {type}</>;

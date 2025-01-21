@@ -10,6 +10,7 @@ const SelectInput = forwardRef<HTMLSelectElement, SelectInputProps & ReturnType<
       <FormFieldWrapper>
         <FormLabel htmlFor={name}>{label}</FormLabel>
         <FormSelectInput name={name} id={name} ref={ref} onChange={onChange} onBlur={onBlur} title={label}>
+          <FormSelectOption value=""></FormSelectOption>
           {options.map((option) => (
             <FormSelectOption key={option.value} value={option.value}>
               {option.label}
